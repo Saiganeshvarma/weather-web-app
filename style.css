@@ -10,7 +10,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Adjust height for full viewport */
+    height: 50vh; /* Adjust height for full viewport */
     transition: background-color 0.5s ease;
 }
 
