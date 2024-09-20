@@ -4,28 +4,28 @@ const weatherData = {
         description: "Sunny",
         humidity: 50,
         windSpeed: 10,
-        background: "images/sunny.jpg" // Path to sunny image
+        image: "images/sunny.jpg" // Path to sunny image
     },
     "London": {
         temp: 18,
         description: "Cloudy",
         humidity: 65,
         windSpeed: 15,
-        background: "images/cloudy.jpg" // Path to cloudy image
+        image: "images/cloudy.jpg" // Path to cloudy image
     },
     "Tokyo": {
         temp: 30,
         description: "Clear",
         humidity: 40,
         windSpeed: 8,
-        background: "images/clear-sky.jpg" // Path to clear sky image
+        image: "images/clear-sky.jpg" // Path to clear sky image
     },
     "Sydney": {
         temp: 22,
         description: "Rainy",
         humidity: 70,
         windSpeed: 12,
-        background: "images/rain.jpg" // Path to rainy image
+        image: "images/rain.jpg" // Path to rainy image
     }
 };
 
@@ -38,6 +38,8 @@ const humidity = document.getElementById('humidity');
 const windSpeed = document.getElementById('wind-speed');
 const weatherInfo = document.getElementById('weather-info');
 const errorMessage = document.getElementById('error-message');
+const weatherImage = document.getElementById('weather-image');
+const imageContainer = document.getElementById('image-container');
 
 getWeatherBtn.addEventListener('click', () => {
     const selectedCity = citySelect.value;
@@ -62,13 +64,14 @@ function displayWeatherData(city) {
     weatherInfo.style.display = 'block';
     errorMessage.style.display = 'none';
 
-    // Update background image
-    document.body.style.backgroundImage = `url(${data.background})`;
-    document.body.style.backgroundSize = 'cover'; // Ensure the background covers the entire screen
+    // Display weather image
+    weatherImage.src = data.image;
+    imageContainer.style.display = 'block';
 }
 
 function showError(message) {
     errorMessage.textContent = message;
     errorMessage.style.display = 'block';
     weatherInfo.style.display = 'none';
+    imageContainer.style.display = 'none';
 }
